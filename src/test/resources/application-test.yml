@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:15://localhost/testdb
+    username: testuser
+    password: testpass
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# Test configuration
+llamaparse:
+  api-key: test-key
+  base-url: http://localhost:8080/test
+
+llama:
+  model-url: http://localhost:8080/test
+  model-name: test-model
+  max-tokens: 100
+  temperature: 0.5
+
+embedding:
+  model-name: test-embedding-model
+  chunk-size: 100
+  chunk-overlap: 10
+  vector-dimension: 384
+
+rag:
+  top-k-chunks: 3
+  similarity-threshold: 0.5
+
+logging:
+  level:
+    com.ai.chatbot: DEBUG
+    org.springframework: INFO
+
+

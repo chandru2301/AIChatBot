@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: rag-chatbot
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5439/chatdb
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+# LlamaParse API Configuration
+llamaparse:
+  api-key: llx-Wl7f8bmbD0qjdjIB1VlvS3pgtrivGAiwMQ7uv12PZx0w6rgI
+  base-url: https://api.cloud.llamaindex.ai/api/v1/parsing
+  
+# LLaMA Model Configuration
+llama:
+  model-url: http://localhost:11434/api/generate
+  model-name: llama3.2:3b
+  max-tokens: 2048
+  temperature: 0.7
+  
+# Embedding Configuration
+embedding:
+  model-name: BAAI/bge-small-en-v1.5
+  chunk-size: 500
+  chunk-overlap: 50
+  vector-dimension: 384
+  
+# RAG Configuration
+rag:
+  top-k-chunks: 5
+  similarity-threshold: 1.5
+
+# Logging Configuration
+logging:
+  level:
+    com.ai.chatbot: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/rag-chatbot.log
+
+# Server Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /
