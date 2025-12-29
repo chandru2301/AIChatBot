@@ -87,7 +87,7 @@ Key configuration options in `application.yml`:
 ```yaml
 # LlamaParse API Configuration
 llamaparse:
-  api-key: llx-Wl7f8bmbD0qjdjIB1VlvS3pgtrivGAiwMQ7uv12PZx0w6rgI
+  api-key: your-key
   base-url: https://api.llamaindex.ai/api/parsing/upload
 
 # LLaMA Model Configuration
