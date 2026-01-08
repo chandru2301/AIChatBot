@@ -3,10 +3,10 @@ spring:
     name: rag-chatbot
   
   datasource:
-    url: jdbc:postgresql://localhost:5439/chatdb
+    url: jdbc:postgresql://localhost:5439/chatdbabc
     username: postgres
     password: admin
-    driver-class-name: org.postgresql.Driver
+    driver-class-name: org.postgresql.Drivers
   
   jpa:
     hibernate:
